@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        node {
-            label 'lab1_agent'
-        }
-    }
+    agent any
+
     
     environment {
         DOCKER_HUB_USERNAME = "mandeotv"

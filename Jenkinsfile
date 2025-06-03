@@ -239,7 +239,7 @@ pipeline {
                             echo "Updating Helm charts for these services: ${env.SERVICE_NAMES}"
                             
                             // Kích hoạt job nhưng không chờ nó hoàn thành
-                            build job: 'k8s_update_helm', 
+                            build job: 'k8s_update_helm_man', 
                                 wait: false,
                                 parameters: [
                                     string(name: 'SERVICE_NAMES', value: env.SERVICE_NAMES),

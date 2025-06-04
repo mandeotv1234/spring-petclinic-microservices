@@ -4,10 +4,24 @@ spring:
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
 
+  zipkin:
+    base-url: http://zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+    enabled: true
 
 ---
+
 spring:
   config:
     activate:
       on-profile: docker
     import: configserver:http://config-server:8888
+
+  zipkin:
+    base-url: http://zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+    enabled: true

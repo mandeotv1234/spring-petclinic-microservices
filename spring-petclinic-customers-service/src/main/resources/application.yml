@@ -2,49 +2,24 @@ spring:
   application:
     name: customers-service
   config:
-    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
-  zipkin:
-    base-url: http://zipkin:9411
-  sleuth:
-    sampler:
-      probability: 1.0
-    enabled: true
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    prometheus:
-      enabled: true
-  metrics:
-    export:
-      prometheus:
-        enabled: true
 
 ---
-
 spring:
   config:
     activate:
       on-profile: docker
     import: configserver:http://config-server:8888
-  zipkin:
-    base-url: http://zipkin:9411
-  sleuth:
-    sampler:
-      probability: 1.0
-    enabled: true
 
 management:
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_BASE_URL}
   endpoints:
     web:
       exposure:
         include: "*"
-  endpoint:
-    prometheus:
-      enabled: true
   metrics:
     export:
       prometheus:

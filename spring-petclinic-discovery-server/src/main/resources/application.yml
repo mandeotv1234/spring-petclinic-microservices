@@ -22,7 +22,7 @@ spring:
 management:
   zipkin:
     tracing:
-      endpoint: http://zipkin.default.svc:9411
+      endpoint: http://zipkin.default.svc.cluster.local:9411
   endpoints:
     web:
       exposure:

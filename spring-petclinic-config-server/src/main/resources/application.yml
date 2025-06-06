@@ -9,4 +9,16 @@ spring:
         # Use the File System Backend to avoid git pulling. Enable "native" profile in the Config Server.
         native:
           searchLocations: file:///${GIT_REPO}
+management:
+  zipkin:
+    tracing:
+      endpoint: http://zipkin.observability:9411
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
 

@@ -15,11 +15,15 @@ spring:
 management:
   zipkin:
     tracing:
-      endpoint: http://zipkin.default.svc.cluster.local:9411
+      endpoint: http://zipkin.observability:9411
   endpoints:
     web:
       exposure:
         include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
   metrics:
     export:
       prometheus:

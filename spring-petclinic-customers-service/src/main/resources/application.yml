@@ -11,3 +11,16 @@ spring:
     activate:
       on-profile: docker
     import: configserver:http://config-server:8888
+
+management:
+  zipkin:
+    tracing:
+      endpoint:  http://zipkin.observability:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true

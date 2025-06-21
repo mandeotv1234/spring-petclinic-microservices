@@ -2,5 +2,7 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <!-- Required for Loglevel managment into the Spring Petclinic Admin Server-->
+    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [traceId=%X{traceId}, spanId=%X{spanId}] %logger{36} - %msg%n</pattern>
+
     <jmxConfigurator/>
 </configuration>

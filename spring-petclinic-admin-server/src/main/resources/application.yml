@@ -15,7 +15,7 @@ spring:
 management:
   zipkin:
     tracing:
-      endpoint:  http://zipkin.observability:9411/api/v2/spans
+      endpoint:  http://tracing-server:9411/api/v2/spans
   endpoints:
     web:
       exposure:

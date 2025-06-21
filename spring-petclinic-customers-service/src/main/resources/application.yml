@@ -3,9 +3,10 @@ spring:
     name: customers-service
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
-
-
+server:
+  port: 9090
 ---
+
 spring:
   config:
     activate:
@@ -15,7 +16,7 @@ spring:
 management:
   zipkin:
     tracing:
-      endpoint:  http://zipkin.observability:9411/api/v2/spans
+      endpoint: http://tracing-server:9411/api/v2/spans
   endpoints:
     web:
       exposure:
@@ -24,3 +25,8 @@ management:
     export:
       prometheus:
         enabled: true
+
+
+
+
+
